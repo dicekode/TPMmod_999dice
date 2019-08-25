@@ -18,7 +18,7 @@ echo "Launching 999dice module!\n";
 
 // Do setup
 echo "Checking for username...    ";
-if (file_exist($path."/uname.txt")) {
+if (file_exists($path."/uname.txt")) {
     echo "OK!\n";
 } else {
     echo "Fail!\n";
@@ -27,7 +27,7 @@ if (file_exist($path."/uname.txt")) {
     echo "Got it.\n";
 }
 echo "Checking for password...    ";
-if (file_exist($path."/upass.txt")) {
+if (file_exists($path."/upass.txt")) {
     echo "OK!\n";
 } else {
     echo "Fail!\n";
