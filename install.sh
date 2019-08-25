@@ -1,3 +1,4 @@
+cd "/home/`whoami`/TPM/mods/999dice"
 echo "Installing php extensions";
 sudo apt-get install php-pear php-zip php-curl php-gd php-mysql php-xml php-mbstring -y
 echo "Installing composer";
