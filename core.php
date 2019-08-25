@@ -37,3 +37,36 @@ if (file_exist($path."/upass.txt")) {
 echo "Checking if data is correct";
 $uname = file_get_contents($path."/uname.txt");
 $upass = file_get_contentd($path."/upass.txt");
+// Initialize 999
+$api = "4f80542ca113477d8d2fc380af54e15e";
+try {
+$three9DiceClient = new \Three9Dice\Client(
+	new \Three9Dice\User($apiKey, $uname, $upass)
+);
+} catch (Exception $e) {
+    print_r($e);
+    unlink($path."/uname.txt");
+    unlink($path."/uname.txt");
+    echo "Failed...";
+    include $path."/core.php"; // TODO: Make it better
+    exit;
+}
+
+// ==== User is no longer needed
+
+$server = new Server(function (ServerRequestInterface $request) {
+    $queryParams = $request->getQueryParams();
+    
+    
+    
+    if (isset($queryParams['foo'])) {
+        $body = 'The value of "foo" is: ' . htmlspecialchars($queryParams['foo']);
+    }
+    return new Response(
+        200,
+        array(
+            'Content-Type' => 'text/html'
+        ),
+        $body
+    );
+});
