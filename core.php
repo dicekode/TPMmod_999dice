@@ -23,8 +23,7 @@ if (file_exists($path."/uname.txt")) {
 } else {
     echo "Fail!\n";
     echo "Unable to find login information in \"database\"";
-    $u = userPrompt("Username: ");
-    file_put_contents($path."/uname.txt",$u);
+    shell_exec("echo \"".userPrompt("Username: ")."\" >> $path/uname.txt");
     echo "\$u: $u\nGot it.\n";
 }
 echo "Checking for password...    ";
@@ -33,7 +32,7 @@ if (file_exists($path."/upass.txt")) {
 } else {
     echo "Fail!\n";
     echo "Unable to find login information in \"database\"";
-    file_put_contents($path."/upass.txt",userPrompt("Password: "));
+    shell_exec("echo \"".userPrompt("Password: ")."\" >> $path/upass.txt");
     echo "Got it.\n";
 }
 echo "Checking if data is correct";
