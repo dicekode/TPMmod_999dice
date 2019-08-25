@@ -23,8 +23,9 @@ if (file_exists($path."/uname.txt")) {
 } else {
     echo "Fail!\n";
     echo "Unable to find login information in \"database\"";
-    file_put_contents($path."/uname.txt",userPrompt("Username: "));
-    echo "Got it.\n";
+    $u = userPrompt("Username: ");
+    file_put_contents($path."/uname.txt",$u);
+    echo "\$u: $u\nGot it.\n";
 }
 echo "Checking for password...    ";
 if (file_exists($path."/upass.txt")) {
@@ -37,12 +38,12 @@ if (file_exists($path."/upass.txt")) {
 }
 echo "Checking if data is correct";
 $uname = file_get_contents($path."/uname.txt");
-$upass = file_get_contentd($path."/upass.txt");
+$upass = file_get_contents($path."/upass.txt");
 // Initialize 999
 $api = "4f80542ca113477d8d2fc380af54e15e";
 try {
 $three9DiceClient = new \Three9Dice\Client(
-	new \Three9Dice\User($apiKey, $uname, $upass)
+	new \Three9Dice\User($api, $uname, $upass)
 );
 } catch (Exception $e) {
     print_r($e);
