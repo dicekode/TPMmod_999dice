@@ -10,7 +10,6 @@ function userPrompt($message) {
     $handle = fopen ('php://stdin','r');
     $line = rtrim(fgets($handle), "\r\n");
     return $line;
-    }
 }
 
 $path = "~/TPM/mod/999dice";
