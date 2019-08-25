@@ -3,19 +3,19 @@
 include './vendor/autoload.php';
 
 //Do update, just in case.
-shell_exec("bash ~/TPM/mod/999dice/update.sh");
-//Ask user for input
-$path = "/home/".shell_exec('whoami')."/TPM/mods/999dice";
+//shell_exec("bash ~/TPM/mod/999dice/update.sh");
+$path = shell_exec('echo "/home/`whoami`/TPM/mods/999dice"');
 echo "Launching 999dice module!\n";
-// Do setup
+echo "PATH: $path\n";
+// Do checkups
 echo "Checking for username...    ";
 if (file_exists($path."/uname.txt")) {
     echo "OK!\n";
 } else {
     echo "Fail!\n";
     echo "Unable to find login information in \"database\"";
-    echo "Please finish setup!!!\n\n#############";
-    echo "echo \"YOUR_999DICE_USERNAME\" >> $path/uname.txt";
+    echo "Please finish setup by using this command:\n#############\n";
+    echo "bash $path/config.sh";
     die();
 }
 echo "Checking for password...    ";
@@ -24,14 +24,15 @@ if (file_exists($path."/upass.txt")) {
 } else {
     echo "Fail!\n";
     echo "Unable to find login information in \"database\"";
-    echo "echo \"YOUR_999DICE_PASSWORD\" >> $path/upass.txt";
+    echo "Please finish setup by using this command:\n#############\n";
+    echo "bash $path/config.sh";
     die();
 }
 echo "Checking if data is correct";
 $uname = file_get_contents($path."/uname.txt");
 $upass = file_get_contents($path."/upass.txt");
 // Initialize 999
-$api = "4f80542ca113477d8d2fc380af54e15e";
+$api = "4f80542ca113477d8d2fc380af54e15e"; //dgewow13 API key
 try {
 $three9DiceClient = new \Three9Dice\Client(
 	new \Three9Dice\User($api, $uname, $upass)
