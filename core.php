@@ -1,3 +1,5 @@
+<?php
+
 include './vendor/autoload.php';
 
 //Do update, just in case.
