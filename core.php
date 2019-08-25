@@ -12,7 +12,7 @@ function userPrompt($message) {
     return $line;
 }
 
-$path = "~/TPM/mod/999dice";
+$path = "~/TPM/mods/999dice";
 echo "Launching 999dice module!\n";
 
 
