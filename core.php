@@ -4,7 +4,7 @@ include './vendor/autoload.php';
 
 //Do update, just in case.
 //shell_exec("bash ~/TPM/mod/999dice/update.sh");
-$path = shell_exec('echo "/home/`whoami`/TPM/mods/999dice"');
+$path = str_replace(PHP_EOL,"",shell_exec('echo "/home/`whoami`/TPM/mods/999dice"'));
 echo "Launching 999dice module!\n";
 echo "PATH: $path\n";
 // Do checkups
