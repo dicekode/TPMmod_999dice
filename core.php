@@ -5,17 +5,8 @@ include './vendor/autoload.php';
 //Do update, just in case.
 shell_exec("bash ~/TPM/mod/999dice/update.sh");
 //Ask user for input
-function userPrompt($message) {
-    print($message);
-    $handle = fopen ('php://stdin','r');
-    $line = rtrim(fgets($handle), "\r\n");
-    return $line;
-}
-
 $path = "/home/".shell_exec('whoami')."/TPM/mods/999dice";
 echo "Launching 999dice module!\n";
-
-
 // Do setup
 echo "Checking for username...    ";
 if (file_exists($path."/uname.txt")) {
@@ -23,8 +14,9 @@ if (file_exists($path."/uname.txt")) {
 } else {
     echo "Fail!\n";
     echo "Unable to find login information in \"database\"";
-    shell_exec("echo \"".userPrompt("Username: ")."\" >> $path/uname.txt");
-    echo "\$u: $u\nGot it.\n";
+    echo "Please finish setup!!!\n\n#############";
+    echo "echo \"YOUR_999DICE_USERNAME\" >> $path/uname.txt";
+    die();
 }
 echo "Checking for password...    ";
 if (file_exists($path."/upass.txt")) {
@@ -32,8 +24,8 @@ if (file_exists($path."/upass.txt")) {
 } else {
     echo "Fail!\n";
     echo "Unable to find login information in \"database\"";
-    shell_exec("echo \"".userPrompt("Password: ")."\" >> $path/upass.txt");
-    echo "Got it.\n";
+    echo "echo \"YOUR_999DICE_PASSWORD\" >> $path/upass.txt";
+    die();
 }
 echo "Checking if data is correct";
 $uname = file_get_contents($path."/uname.txt");
