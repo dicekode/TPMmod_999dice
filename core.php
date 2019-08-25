@@ -31,7 +31,7 @@ if (file_exist($path."/upass.txt")) {
     echo "OK!\n";
 } else {
     echo "Fail!\n";
-    echo "Unable to find login information in "database\"";
+    echo "Unable to find login information in \"database\"";
     file_put_contents($path."/upass.txt",userPrompt("Password: "));
     echo "Got it.\n";
 }
