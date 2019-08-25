@@ -22,7 +22,7 @@ if (file_exist($path."/uname.txt")) {
     echo "OK!\n";
 } else {
     echo "Fail!\n";
-    echo "Unable to find login information in "database\"";
+    echo "Unable to find login information in \"database\"";
     file_put_contents($path."/uname.txt",userPrompt("Username: "));
     echo "Got it.\n";
 }
