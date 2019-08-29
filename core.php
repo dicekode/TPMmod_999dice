@@ -116,6 +116,7 @@ Array
 	$response = [];
 	$response['win'] = 1*$bet['PayOut'];
 	$response['balance'] = $bet['StartingBalance']+$bet['PayOut'];
+	print_r($response);
 	return json_encode($response);
 	// #TODO: add bet verification.
 }
