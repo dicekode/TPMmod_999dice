@@ -74,7 +74,7 @@ while (1) {
 	    $amount = $inp[1];
 	    $chance = $inp[2];
 	    $bethi  = $inp[3];
-	    placeBet($amount; $chance; $bethi);
+	    placeBet($amount, $chance, $bethi);
 	}
 	$cnt = 0;    
     }
@@ -86,7 +86,7 @@ while (1) {
     echo "\nTaking break: ".(50000*$cnt);
     usleep(50000*$cnt);
 }
-function placeBet($amount = 0; $chance = 49.95; $bethi = true) {
+function placeBet($amount = 0, $chance = 49.95, $bethi = true) {
     $lower = !$bethi
     $bet = new \Three9Dice\Bet\Bet(
 	// Amount in satoshi
