@@ -90,6 +90,7 @@ while (1) {
     usleep(50000*$cnt);
 }
 function placeBet($amount = 0, $chance = 49.95, $bethi = true) {
+    global $three9DiceClient;
     $lower = !$bethi;
     $bet = new \Three9Dice\Bet\Bet(
 	// Amount in satoshi
