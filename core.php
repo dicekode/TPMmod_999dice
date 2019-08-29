@@ -77,7 +77,7 @@ while (1) {
 	    $amount = $inp[1];
 	    $chance = $inp[2];
 	    $bethi  = $inp[3];
-	    placeBet($amount, $chance, $bethi);
+	    file_put_contents("./reply.txt",placeBet($amount, $chance, $bethi));
 	}
 	$cnt = 0;    
     }
@@ -101,5 +101,21 @@ function placeBet($amount = 0, $chance = 49.95, $bethi = true) {
 	\Three9Dice\GuessRange\GuessRange::generatePercent($chance, $lower)
     );	
     $bet = $three9DiceClient->placeBet( $bet );
-    print_r($bet);
+    // print_r($bet);
+/*
+Array
+(
+    [BetId] => 100504281418
+    [PayOut] => 0
+    [Secret] => 327078
+    [StartingBalance] => 15851548
+    [ServerSeed] => 0cdf979b1138cdab18dccfa3fffb11b4c6290f580688b419adc914a10edf9d3a
+    [Next] => 0357b5fce9e9466ecd6ab76ccbd2e88360a07ab7541ec3b7725c61ff037fd138
+)
+*/
+	$response = [];
+	$response['win'] = 1*$bet['PayOut'];
+	$response['balance'] = $bet['StartingBalance']+$bet['PayOut'];
+	return json_encode($response);
+	// #TODO: add bet verification.
 }
