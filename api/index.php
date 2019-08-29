@@ -1,4 +1,5 @@
 <?php
+try {
 $f = "../todo.txt";
 $g = "../reply.txt";
 if ($_GET['action'] == 'bet') {
@@ -14,4 +15,7 @@ if ($_GET['action'] == 'bet') {
           return echo file_get_contents($g);
         }
     }
+}
+} catch ( Exception $e ) {
+    print_r($e);
 }
