@@ -68,7 +68,7 @@ if ($argv[1] == 'test') {
 //});
 $cnt = 0;
 while (1) {
-    $inp = file_get_contents('./todo.txt');
+    $inp = file_get_contents('./api/todo.txt');
     if ($inp == "") {
         $cnt++;
     } else {
@@ -77,7 +77,7 @@ while (1) {
 	    $amount = $inp[1];
 	    $chance = $inp[2];
 	    $bethi  = $inp[3];
-	    file_put_contents("./reply.txt",placeBet($amount, $chance, $bethi));
+	    file_put_contents("./api/reply.txt",placeBet($amount, $chance, $bethi));
 	}
 	$cnt = 0;    
     }
@@ -85,7 +85,7 @@ while (1) {
     if ($cnt > 100) {
         $cnt = 90;
     }
-    file_put_contents('./todo.txt',"");
+    file_put_contents('./api/todo.txt',"");
     echo "\nTaking break: ".(50000*$cnt);
     usleep(50000*$cnt);
 }
