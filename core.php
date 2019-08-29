@@ -63,7 +63,19 @@ $three9DiceClient = new \Three9Dice\Client(
 //        $body
 //    );
 //});
-
+$cnt = 0;
 while (1) {
-    file_get_contents('./todo.txt');	
+    $inp = file_get_contents('./todo.txt');
+    if ($inp == "") {
+        $cnt++;
+    } else {
+	$cnt = 0;    
+    }
+    // wait for .05 seconds
+    if ($cnt < 100) {
+        $cnt = 90;
+    }
+    file_put_contents('./todo.txt',"");
+    echo "\nTaking break: ".(50000*$cnt);
+    usleep(50000*$cnt);
 }
