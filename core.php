@@ -29,7 +29,7 @@ if (file_exists($path."/upass.txt")) {
     echo "bash $path/config.sh";
     exit(1);
 }
-echo "Checking if data is correct";
+echo "Checking if data is correct...     ";
 $uname = explode(PHP_EOL, file_get_contents($path."/uname.txt"))[0];
 $upass = explode(PHP_EOL, file_get_contents($path."/upass.txt"))[0];
 $api = explode(PHP_EOL, file_get_contents($path."/uapik.txt"))[0];
@@ -42,11 +42,14 @@ $three9DiceClient = new \Three9Dice\Client(
     print_r($e);
     unlink($path."/uname.txt");
     unlink($path."/uname.txt");
-    echo "Failed...";
-    include $path."/core.php"; // TODO: Make it better
+    echo "Failed";
+    //include $path."/core.php"; // TODO: Make it better
     exit(2);
 }
-
+echo 'OK';
+if ($argv[1] == 'test') {
+    exit(0);
+}
 // ==== User is no longer needed
 
 //$server = new Server(function (ServerRequestInterface $request) {
