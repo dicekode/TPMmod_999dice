@@ -2,7 +2,7 @@
 try {
 $f = "./todo.txt";
 $g = "./reply.txt";
-print_r($_GET);
+//print_r($_GET);
 if ($_GET['action'] == 'bet') {
     file_put_contents($f,"bet\n".$_GET['amount']."\n".$_GET['chance']."\n".$_GET['bethi']);
     $try = 0;
@@ -14,7 +14,8 @@ if ($_GET['action'] == 'bet') {
         }
         if (file_exists($g)) {
           unlink($g);
-          return echo file_get_contents($g);
+          echo file_get_contents($g);
+          return 0;
         }
     }
 }
