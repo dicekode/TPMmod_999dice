@@ -12,6 +12,7 @@ if ($_GET['action'] == 'bet') {
           return 1;
         }
         if (file_exists($g)) {
+          unlink($g);
           return echo file_get_contents($g);
         }
     }
