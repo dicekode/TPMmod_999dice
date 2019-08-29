@@ -1,0 +1,3 @@
+999dice mod.
+default port is saved in port.txt, feel free to change it.
+[Default: 42999]
