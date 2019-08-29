@@ -15,7 +15,7 @@ if (file_exists($path."/uname.txt")) {
 } else {
     echo "Fail!\n";
     echo "Unable to find login information in \"database\"";
-    echo "Please finish setup by using this command:\n#############\n";
+    echo "\nPlease finish setup by using this command:\n#############\n";
     echo "bash $path/config.sh";
     exit(1);
 }
@@ -33,7 +33,7 @@ echo "Checking if data is correct";
 $uname = file_get_contents($path."/uname.txt");
 $upass = file_get_contents($path."/upass.txt");
 // Initialize 999
-$api = "4f80542ca113477d8d2fc380af54e15e"; //dgewow13 API key
+$api = file_get_contents($path."/uapik.txt");
 try {
 $three9DiceClient = new \Three9Dice\Client(
 	new \Three9Dice\User($api, $uname, $upass)
