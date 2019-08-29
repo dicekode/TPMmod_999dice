@@ -7,8 +7,10 @@ read user
 echo "Password:";
 read pass
 echo "writing username";
+rm  /home/`whoami`/TPM/mods/999dice/uname.txt; 
 echo "$user" >> /home/`whoami`/TPM/mods/999dice/uname.txt; 
 echo "writing password";
+rm  /home/`whoami`/TPM/mods/999dice/upass.txt; 
 echo "$pass" >> /home/`whoami`/TPM/mods/999dice/upass.txt;
 echo "=== D O N E ===";
 exit;
