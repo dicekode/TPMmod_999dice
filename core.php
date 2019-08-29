@@ -100,6 +100,6 @@ function placeBet($amount = 0, $chance = 49.95, $bethi = true) {
 	// GuessRange 
 	\Three9Dice\GuessRange\GuessRange::generatePercent($chance, $lower)
     );	
-    $three9DiceClient->placeBet( $bet );
+    $bet = $three9DiceClient->placeBet( $bet );
     print_r($bet);
 }
