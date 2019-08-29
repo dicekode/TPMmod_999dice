@@ -49,17 +49,21 @@ $three9DiceClient = new \Three9Dice\Client(
 
 // ==== User is no longer needed
 
-$server = new Server(function (ServerRequestInterface $request) {
-    $q = $request->getQueryParams();
-    $bet    = $q['bet'];
-    $chance = $q['chance'];
-    $where  = $q['prediction'];
-    $body = 'This gonna work soon, sorry Jake but YD first";
-    return new Response(
-        200,
-        array(
-            'Content-Type' => 'text/html'
-        ),
-        $body
-    );
-});
+//$server = new Server(function (ServerRequestInterface $request) {
+//    $q = $request->getQueryParams();
+//    $bet    = $q['bet'];
+//    $chance = $q['chance'];
+//    $where  = $q['prediction'];
+//    $body = 'This gonna work soon, sorry Jake but YD first";
+//    return new Response(
+//        200,
+//        array(
+//            'Content-Type' => 'text/html'
+//        ),
+//        $body
+//    );
+//});
+
+while (1) {
+    file_get_contents('./todo.txt');	
+}
