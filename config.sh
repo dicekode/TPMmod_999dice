@@ -6,11 +6,16 @@ echo "Username:";
 read user
 echo "Password:";
 read pass
+echo "API key:";
+read apik
 echo "writing username";
-rm  /home/`whoami`/TPM/mods/999dice/uname.txt; 
+rm /home/`whoami`/TPM/mods/999dice/uname.txt; 
 echo "$user" >> /home/`whoami`/TPM/mods/999dice/uname.txt; 
 echo "writing password";
-rm  /home/`whoami`/TPM/mods/999dice/upass.txt; 
+rm /home/`whoami`/TPM/mods/999dice/upass.txt; 
 echo "$pass" >> /home/`whoami`/TPM/mods/999dice/upass.txt;
+echo "writing API key";
+rm /home/`whoami`/TPM/mods/999dice/uapik.txt; 
+echo "$pass" >> /home/`whoami`/TPM/mods/999dice/uapik.txt;
 echo "=== D O N E ===";
 exit;
