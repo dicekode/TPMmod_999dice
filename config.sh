@@ -16,6 +16,6 @@ rm /home/`whoami`/TPM/mods/999dice/upass.txt;
 echo "$pass" >> /home/`whoami`/TPM/mods/999dice/upass.txt;
 echo "writing API key";
 rm /home/`whoami`/TPM/mods/999dice/uapik.txt; 
-echo "$pass" >> /home/`whoami`/TPM/mods/999dice/uapik.txt;
+echo "$apik" >> /home/`whoami`/TPM/mods/999dice/uapik.txt;
 echo "=== D O N E ===";
 exit;
