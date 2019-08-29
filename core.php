@@ -69,13 +69,33 @@ while (1) {
     if ($inp == "") {
         $cnt++;
     } else {
+	$inp = explode("\n",$inp);
+	if ($inp[0] == 'bet') {
+	    $amount = $inp[1];
+	    $chance = $inp[2];
+	    $bethi  = $inp[3];
+	    placeBet($amount; $chance; $bethi);
+	}
 	$cnt = 0;    
     }
     // wait for .05 seconds
-    if ($cnt < 100) {
+    if ($cnt > 100) {
         $cnt = 90;
     }
     file_put_contents('./todo.txt',"");
     echo "\nTaking break: ".(50000*$cnt);
     usleep(50000*$cnt);
+}
+function placeBet($amount = 0; $chance = 49.95; $bethi = true) {
+    $lower = !$bethi
+    $bet = new \Three9Dice\Bet\Bet(
+	// Amount in satoshi
+	$amount,
+	// Currency
+	\Three9Dice\Constant::CURRENCY_DOGE, 
+	// GuessRange 
+	\Three9Dice\GuessRange\GuessRange::generatePercent($chance, $lower)
+    );	
+    $three9DiceClient->placeBet( $bet );
+    print_r($bet);
 }
