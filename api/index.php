@@ -13,8 +13,8 @@ if ($_GET['action'] == 'bet') {
           return 1;
         }
         if (file_exists($g)) {
-          unlink($g);
           echo file_get_contents($g);
+          unlink($g);
           return 0;
         }
     }
