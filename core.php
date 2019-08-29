@@ -1,7 +1,8 @@
 <?php
 
-include './vendor/autoload.php';
+$port = file_get_contents("./port.txt");
 
+include './vendor/autoload.php';
 //Do update, just in case.
 //shell_exec("bash ~/TPM/mod/999dice/update.sh");
 $path = str_replace(PHP_EOL,"",shell_exec('echo "/home/`whoami`/TPM/mods/999dice"'));
@@ -16,7 +17,7 @@ if (file_exists($path."/uname.txt")) {
     echo "Unable to find login information in \"database\"";
     echo "Please finish setup by using this command:\n#############\n";
     echo "bash $path/config.sh";
-    die();
+    exit(1);
 }
 echo "Checking for password...    ";
 if (file_exists($path."/upass.txt")) {
@@ -26,7 +27,7 @@ if (file_exists($path."/upass.txt")) {
     echo "Unable to find login information in \"database\"";
     echo "Please finish setup by using this command:\n#############\n";
     echo "bash $path/config.sh";
-    die();
+    exit(1);
 }
 echo "Checking if data is correct";
 $uname = file_get_contents($path."/uname.txt");
@@ -43,19 +44,17 @@ $three9DiceClient = new \Three9Dice\Client(
     unlink($path."/uname.txt");
     echo "Failed...";
     include $path."/core.php"; // TODO: Make it better
-    exit;
+    exit(2);
 }
 
 // ==== User is no longer needed
 
 $server = new Server(function (ServerRequestInterface $request) {
-    $queryParams = $request->getQueryParams();
-    
-    
-    
-    if (isset($queryParams['foo'])) {
-        $body = 'The value of "foo" is: ' . htmlspecialchars($queryParams['foo']);
-    }
+    $q = $request->getQueryParams();
+    $bet    = $q['bet'];
+    $chance = $q['chance'];
+    $where  = $q['prediction'];
+    $body = 'This gonna work soon, sorry Jake but YD first";
     return new Response(
         200,
         array(
