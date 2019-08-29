@@ -1,7 +1,7 @@
 <?php
 try {
-$f = "../todo.txt";
-$g = "../reply.txt";
+$f = "./todo.txt";
+$g = "./reply.txt";
 if ($_GET['action'] == 'bet') {
     file_put_contents($f,"bet\n".$_GET['amount']."\n".$_GET['chance']."\n".$_GET['bethi']);
     $try = 0;
