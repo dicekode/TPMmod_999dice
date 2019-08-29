@@ -30,10 +30,10 @@ if (file_exists($path."/upass.txt")) {
     exit(1);
 }
 echo "Checking if data is correct";
-$uname = file_get_contents($path."/uname.txt");
-$upass = file_get_contents($path."/upass.txt");
+$uname = explode(PHP_EOL, file_get_contents($path."/uname.txt"))[0];
+$upass = explode(PHP_EOL, file_get_contents($path."/upass.txt"))[0];
+$api = explode(PHP_EOL, file_get_contents($path."/uapik.txt"))[0];
 // Initialize 999
-$api = file_get_contents($path."/uapik.txt");
 try {
 $three9DiceClient = new \Three9Dice\Client(
 	new \Three9Dice\User($api, $uname, $upass)
