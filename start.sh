@@ -1,7 +1,9 @@
 echo "==== Starting core.php====";
 cd /home/`whoami`/TPM/mods/999dice
 php core.php test
-if [ "$?" == "0" ];
+ec=$?
+echo " [ExitCode]: $ec";
+if [ "$ec" == "0" ];
 then
     screen -dm php core.php
 else
