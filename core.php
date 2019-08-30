@@ -88,11 +88,15 @@ while (1) {
             }
 	}
         if ($inp[0] == 'deposit') {
-	    $amount = $inp[1];
-	    $chance = $inp[2];
-	    $bethi  = $inp[3];
             try {
 	    file_put_contents("./api/reply.txt",$three9DiceClient->getDeposit('doge'));
+            } catch (Exception $e) {
+                print_r($e);
+            }
+	}
+        if ($inp[0] == 'balance') {
+            try {
+	    file_put_contents("./api/reply.txt",((json_decode($three9DiceClient->getDeposit('doge'))->balance)*10000000));
             } catch (Exception $e) {
                 print_r($e);
             }
