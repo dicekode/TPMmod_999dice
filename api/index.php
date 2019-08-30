@@ -35,6 +35,22 @@ if ($_GET['action'] == 'deposit') {
         }
     }
 }
+if ($_GET['action'] == 'balance') {
+    file_put_contents($f,"balance");
+    $try = 0;
+    while (1) {
+        if ($try > 50) {
+          echo "Oh no...";
+          //exit 1;
+          return 1;
+        }
+        if (file_exists($g)) {
+          echo file_get_contents($g);
+          unlink($g);
+          return 0;
+        }
+    }
+}
 } catch ( Exception $e ) {
     print_r($e);
 }
