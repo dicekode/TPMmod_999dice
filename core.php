@@ -96,7 +96,7 @@ while (1) {
 	}
         if ($inp[0] == 'balance') {
             try {
-	    file_put_contents("./api/reply.txt",((json_decode(placeBet(0,49,true))->balance)*10000000));
+	    file_put_contents("./api/reply.txt",((json_decode(placeBet(0,49,true))->balance)/10000000));
             } catch (Exception $e) {
                 print_r($e);
             }
