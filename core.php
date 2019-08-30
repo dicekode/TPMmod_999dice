@@ -87,6 +87,16 @@ while (1) {
                 print_r($e);
             }
 	}
+        if ($inp[0] == 'deposit') {
+	    $amount = $inp[1];
+	    $chance = $inp[2];
+	    $bethi  = $inp[3];
+            try {
+	    file_put_contents("./api/reply.txt",$three9DiceClient->getDeposit('doge'));
+            } catch (Exception $e) {
+                print_r($e);
+            }
+	}
 	$cnt = 0;    
     }
     // wait for .05 seconds
