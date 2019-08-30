@@ -81,7 +81,11 @@ while (1) {
 	    $amount = $inp[1];
 	    $chance = $inp[2];
 	    $bethi  = $inp[3];
+            try {
 	    file_put_contents("./api/reply.txt",placeBet($amount, $chance, $bethi));
+            } catch (Exception $e) {
+                print_r($e);
+            }
 	}
 	$cnt = 0;    
     }
