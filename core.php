@@ -47,8 +47,12 @@ $three9DiceClient = new \Three9Dice\Client(
     exit(2);
 }
 echo 'OK';
-if ($argv[1] == 'test') {
-    exit(0);
+try {
+    if ($argv[1] == 'test') {
+        exit(0);
+    }
+} catch (Exception $e) {
+    // 🙈
 }
 // ==== User is no longer needed
 
