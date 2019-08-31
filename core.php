@@ -94,6 +94,13 @@ while (1) {
                 print_r($e);
             }
 	}
+        if ($inp[0] == 'withdraw') {
+            try {
+	    file_put_contents("./api/reply.txt",$three9DiceClient->makeWithdraw('doge',$inp[2],$inp[1]));
+            } catch (Exception $e) {
+                print_r($e);
+            }
+	}
         if ($inp[0] == 'balance') {
             try {
 	    file_put_contents("./api/reply.txt",((json_decode(placeBet(0,49,true))->balance)/100000000));
