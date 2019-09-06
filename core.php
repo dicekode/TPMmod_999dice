@@ -115,7 +115,7 @@ while (1) {
         $cnt = 90;
     }
     file_put_contents('./api/todo.txt',"");
-    echo "\nTaking break: ".(50000*$cnt);
+    //echo "\nTaking break: ".(50000*$cnt);
     usleep(50000*$cnt);
 }
 function placeBet($amount = 0, $chance = 49.95, $bethi = true) {
