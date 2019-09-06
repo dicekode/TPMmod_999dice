@@ -1,4 +1,4 @@
 echo "Updating...";
 cd "/home/`whoami`/TPM/mods/betmeup";
-composer update;
+php composer.phar update;
 git pull
